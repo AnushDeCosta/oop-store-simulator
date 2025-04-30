@@ -25,7 +25,13 @@ class Product:
 
         :param amount: Number of units to add to stock.
         """
-        pass
+        if type(amount) != int:
+            print("\nInvalid input: Amount must be a number.\n")
+        elif amount <= 0:
+            print("\nInvalid input: Amount must be greater than zero.\n")
+        else:
+            self.__quantity += amount
+
 
     def decrease_quantity(self, amount):
         """
@@ -34,8 +40,15 @@ class Product:
 
         :param amount: Number of units to remove from stock.
         """
-        pass
-
+        if type(amount) != int:
+            print("\nAmount must be a whole number.\n")
+        elif amount <= 0:
+            print("\nAmount must be greater than zero.\n")
+        elif amount > self.__quantity:
+            print(f"Cannot remove {amount}. The remaining {self.__quantity} in stock is removed.")
+            self.__quantity = 0
+        else:
+            self.__quantity -= amount
 
     def __str__(self):
         """
@@ -50,3 +63,14 @@ class Product:
         output.append(f"Price: ${self.__price} each")
         return "\n".join(output)
 
+# Create a product
+pillow = Product(1, "Pillow Set", "Set of two bamboo material pillows.", 45.99)
+
+pillow.increase_quantity(200)
+print(pillow)
+
+pillow.decrease_quantity(-1)
+pillow.increase_quantity(0)
+
+pillow.decrease_quantity(50)
+print(pillow)

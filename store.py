@@ -115,4 +115,3 @@ class Store:
         if self.__products:
             output.append("")
         return "\n".join(output)
-

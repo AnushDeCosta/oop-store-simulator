@@ -104,16 +104,3 @@ class Product:
         """
         if isinstance(price, (int, float)) and price >= 0:
             self.__price = round(price, 2)
-
-
-# # Create a product
-# pillow = Product(1, "Pillow Set", "Set of two bamboo material pillows.", 45.99)
-#
-# pillow.increase_quantity(200)
-# print(pillow)
-#
-# pillow.decrease_quantity(-1)
-# pillow.increase_quantity(0)
-#
-# pillow.decrease_quantity(50)
-# print(pillow)

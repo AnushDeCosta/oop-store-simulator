@@ -2,7 +2,7 @@ class Product:
     """
     Represents a product in a store with a name, price, quantity, and description.
     """
-    def __init__(self, id, name, description, price, quantity=2):
+    def __init__(self, id, name, description, price, quantity=0):
         """
         Initializes a Product object with the given details.
 
@@ -60,17 +60,60 @@ class Product:
         output.append(f"Product: {self.__name}")
         output.append(f"Description: {self.__description}")
         output.append(f"Quantity: {self.__quantity}")
-        output.append(f"Price: ${self.__price} each")
+        output.append(f"Price: ${self.__price} each.")
         return "\n".join(output)
 
-# Create a product
-pillow = Product(1, "Pillow Set", "Set of two bamboo material pillows.", 45.99)
 
-pillow.increase_quantity(200)
-print(pillow)
+    def get_id(self):
+        """
+        Returns the product's unique ID.
+        """
+        return self.__id
 
-pillow.decrease_quantity(-1)
-pillow.increase_quantity(0)
 
-pillow.decrease_quantity(50)
-print(pillow)
+    def get_name(self):
+        """
+        Returns the product's name.
+        """
+        return self.__name
+
+
+    def get_description(self):
+        """
+        Returns the product's description.
+        """
+        return self.__description
+
+
+    def get_price(self):
+        """
+        Returns the product's price.
+        """
+        return self.__price
+
+
+    def get_quantity(self):
+        """
+        Returns the product's quantity.
+        """
+        return self.__quantity
+
+    def set_price(self, price):
+        """
+        Updates the product's price, rounded to 2 decimal places.
+        """
+        if isinstance(price, (int, float)) and price >= 0:
+            self.__price = round(price, 2)
+
+
+# # Create a product
+# pillow = Product(1, "Pillow Set", "Set of two bamboo material pillows.", 45.99)
+#
+# pillow.increase_quantity(200)
+# print(pillow)
+#
+# pillow.decrease_quantity(-1)
+# pillow.increase_quantity(0)
+#
+# pillow.decrease_quantity(50)
+# print(pillow)
